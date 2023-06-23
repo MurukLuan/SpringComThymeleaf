@@ -27,6 +27,12 @@ public class Produto {
 	private String descricao;
 	private String urlImagem;
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
