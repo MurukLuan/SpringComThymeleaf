@@ -37,14 +37,35 @@
 		  		
 		  		</div>
 		  		
-		  		<div>
-		  			<div class="row">
-		  				<div class="col">
-		  					<a th:href="@{/editar/{id}(id=${produto.id})}" href="#" class="btn btn-primary"> Editar </a>
-		  				</div>
-		  			</div>
-		  		</div>
-			</div>
+		  		
+	  			<div class="row">
+	  				<div class="col">
+	  					<a th:href="@{/editar/{id}(id=${produto.id})}" href="#" class="btn btn-primary"> Editar </a>
+	  					<button data-bs-toggle="modal" class="btn btn-danger" th:attr="data-bs-target='#modalExcluir' + ${produto.id}"> Deletar </button>
+	  				</div>
+	  			</div>
+		  		
+		  		
+			  	<!-- modal confirmação exclusão produto -->
+				<div class="modal" tabindex="-1" th:attr="id='modalExcluir'+${produto.id}">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">Excluir produto?</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				        <p>Deseja realmente excluir o produto: <strong><span th:text="${produto.nomeProduto}"></span></strong> ?</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				        <a th:href="@{/delete/{id}(id=${produto.id})}" href="#" type="button" class="btn btn-warning">Confirmar</a>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  		
+			</div>			
 		</div>
 	</body>
 
